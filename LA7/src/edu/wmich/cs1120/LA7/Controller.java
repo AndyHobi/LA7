@@ -5,18 +5,18 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Controller implements IController {
+	LinkedList<Course> courseList = new LinkedList();
 	
 	public void readCourseFile() throws FileNotFoundException {
 		File file = new File("course.txt");
 		Scanner scan = new Scanner(file);
 		String[] inputArr = new String[3];
-		LinkedList linkList = new LinkedList();
 		while(scan.hasNextLine()) {
 			String input = scan.nextLine();
 			inputArr = input.split(",");
 			Course course = new Course();
 			course.course(inputArr[0],Integer.parseInt(inputArr[1]),Integer.parseInt(inputArr[2]));
-			linkList.addNode(course);
+			courseList.addNode(course);
 		}
 		scan.close();
 	}
@@ -35,7 +35,9 @@ public class Controller implements IController {
 	}
 	
 	public void printClassList() {
-		
+		for(int i = 0; i < courseList.length; i++) {
+			courseList.getData(i).printClassList();
+		}
 	}
 	
 	public void processRequests() {

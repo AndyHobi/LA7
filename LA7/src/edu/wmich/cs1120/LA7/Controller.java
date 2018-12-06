@@ -97,7 +97,8 @@ public class Controller implements IController {
 						&& (currReq.courseDepartment.compareTo(currCourse.courseDept)) == 0)) {
 
 					if (currReq.studentDepartment.compareTo(currCourse.courseDept) == 0 || requestNum >= initLength) {
-
+						
+						System.out.println("Request " + currReq + " Sucessfully processed!");
 						currCourse.addStudent(currReq.studentName);
 
 					} else {

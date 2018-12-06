@@ -36,6 +36,24 @@ public class Request{
 		}
 	}
 	
+	public String getStudentName() {
+		return studentName;
+	}
+	
+	public String getStudentDepart() {
+		return studentDepartment;
+	}
+	
+	public double GPA_Cal() {
+		double gpaTemp;
+		for(int i = 0; i < 4; i++) {
+			for(int j = 0; j < 4; j++) {
+				gpaTemp = gpaTemp + (GPA_Array[i][i] * GPA Array[]
+			}
+		}
+	}
+	
+	
 	public int compareTo(int other) {
 		return 999;
 	}

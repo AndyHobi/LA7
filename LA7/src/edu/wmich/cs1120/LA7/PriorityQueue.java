@@ -39,7 +39,7 @@ public class PriorityQueue<T extends Comparable<T>> extends LinkedList<T> {
 
 		Node<T> currNode = head;
 		if (length > 0) {
-			for (int i = 0; i <= length; i++) {
+			for (int i = 1; i < length; i++) {
 				System.out.println("Request@" + currNode);
 				currNode = currNode.next;
 			}

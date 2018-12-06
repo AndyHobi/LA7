@@ -5,6 +5,7 @@ public class Course  implements ICourse{
 	int courseNumber = 0;
 	int capacity = 0;
 	String[] classRoster;
+	int numStudents = 0;
 	
 	public void course(String course, int coursenum, int cap) {
 		courseDept = course;
@@ -14,15 +15,17 @@ public class Course  implements ICourse{
 	}
 	
 	public void addStudent(String student) {
-		for(int i = 0; i < capacity; i++) {
-			if(classRoster[i] == null) {
-				classRoster[i] = student;
-			}
+		if(!checkFull()) {
+			classRoster[numStudents] = student;
+			numStudents++;
+			System.out.println(student + " successfully registered " + courseDept + courseNumber);
+		} else {
+			System.out.println(student + " cannot register for " + courseDept + courseNumber);
 		}
 	}
 	
 	public boolean checkFull() {
-		if(classRoster.length >= capacity) {
+		if(numStudents == capacity) {
 			return true;
 		}
 		else {

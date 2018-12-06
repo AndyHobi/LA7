@@ -9,7 +9,7 @@ public class Request implements Comparable<Request>{
 	double[][] GPA_Array;
 	
 	
-	public void request(String studentNameIn, String studentDepIn, String studentLevelIn, String courseDeptIn, int courseNumIn, double[][] GPA_ArrayIn) {
+	public Request(String studentNameIn, String studentDepIn, String studentLevelIn, String courseDeptIn, int courseNumIn, double[][] GPA_ArrayIn) {
 		studentName = studentNameIn;
 		studentDepartment = studentDepIn;
 		studentLevel = studentLevelIn;
@@ -63,7 +63,9 @@ public class Request implements Comparable<Request>{
 		
 		if(comp.yearsFromGarduation() > yearsFromGarduation()) {
 			return -1;
-		} 
+		} else if (comp.yearsFromGarduation() < yearsFromGarduation()){ 
+			return 1;
+		}
 		
 		if(comp.GPA_Cal() < GPA_Cal()) {
 			return -1;

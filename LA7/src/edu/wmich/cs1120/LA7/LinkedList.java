@@ -29,8 +29,14 @@ public class LinkedList<T> {
 	}
 
 	public void addNode(T data) {
+		
+		if (length != 0) {
 		tail.next = new Node<T>(data);
 		tail = tail.next;
+		} else {
+			head = new Node<T>(data);
+			tail = head;
+		}
 		length++;
 	}
 

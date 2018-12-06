@@ -4,16 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class controll {
-	public void readCourseFile() throws FileNotFoundException {
-		File file = new File("course.txt");
-		Scanner scan = new Scanner(file);
-		while(scan.hasNextLine()) {
-			String input = scan.nextLine();
-			input.split(",");
-			Course class = new Course();
-			class(input[0],input[1],input[2]);
-			
-		}
-	}
+	/////dont use this class
+	
 
 }

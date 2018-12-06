@@ -8,11 +8,12 @@ public class Controller implements IController {
 	public void readCourseFile() throws FileNotFoundException {
 		File file = new File("course.txt");
 		Scanner scan = new Scanner(file);
+		String[] inputArr = new String[3];
 		while(scan.hasNextLine()) {
 			String input = scan.nextLine();
-			input.split(",");
+			inputArr = input.split(",");
 			Course course = new Course();
-			course(input[0],input[1],input[2]);
+			course.course(inputArr[0],Integer.parseInt(inputArr[1]),Integer.parseInt(inputArr[2]));
 			
 		}
 	}

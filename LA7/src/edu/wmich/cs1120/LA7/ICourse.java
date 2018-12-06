@@ -4,5 +4,5 @@ public interface ICourse {
 	public boolean checkFull();
 	public void addStudent(String student);
 	public void printClassList();
-	public boolean checkClass(course sample, course current);
+	public boolean checkClass(Course sample, Course current);
 }

@@ -1,6 +1,6 @@
 package edu.wmich.cs1120.LA7;
 
-public class course  implements ICourse{
+public class Course  implements ICourse{
 	String courseDept = "";
 	int courseNumber = 0;
 	int capacity = 0;
@@ -37,7 +37,7 @@ public class course  implements ICourse{
 		}
 	}
 	
-	public boolean checkClass(course sample, course current) {
+	public boolean checkClass(Course sample, Course current) {
 		if(sample == current) {
 			return true;
 		}

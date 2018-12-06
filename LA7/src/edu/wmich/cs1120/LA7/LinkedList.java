@@ -36,8 +36,12 @@ public class LinkedList<T> {
 
 	public void addNode(T data, int index) {
 		if (index < length && index >= 0) {
-			tail.next = new Node<T>(data);
-			tail = tail.next;
+			
+			Node<T> currNode = getNode(index);
+			currNode.next = new Node<T>(data,currNode.next);
+			length++;
+		} else if(index == -1) {
+			head = new Node<T>(data,head);
 			length++;
 		} else {
 			throw new IndexOutOfBoundsException("Index [" + index + "] is not in list");
@@ -54,7 +58,7 @@ public class LinkedList<T> {
 			currNode.next = currNode.next.next;
 			
 		} else if (index == 0) {
-			head.next = head;
+			head = head.next;
 		} else if (index == length-1) {
 			getNode(length-2).next = null;
 		} else {

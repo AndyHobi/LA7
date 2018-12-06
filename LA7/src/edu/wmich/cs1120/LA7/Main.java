@@ -1,6 +1,8 @@
 package edu.wmich.cs1120.LA7;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.util.Scanner;
 import java.io.FileReader;
 
 public class Main {

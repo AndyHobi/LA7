@@ -1,6 +1,6 @@
 package edu.wmich.cs1120.LA7;
 
-public class Request{
+public class Request implements Comparable<T>{
 	String studentName;
 	String studentDepartment;
 	String studentLevel;
@@ -48,9 +48,12 @@ public class Request{
 		double gpaTemp;
 		for(int i = 0; i < 4; i++) {
 			for(int j = 0; j < 4; j++) {
-				gpaTemp = gpaTemp + (GPA_Array[i][i] * GPA Array[]
+				gpaTemp = gpaTemp + (GPA_Array[i][j] * GPA_Array[j][i]);
 			}
 		}
+		gpaTemp = gpaTemp / 4;
+		
+		return gpaTemp;
 	}
 	
 	

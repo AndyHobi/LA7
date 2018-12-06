@@ -1,7 +1,17 @@
 package edu.wmich.cs1120.LA7;
 
+/**
+ * extension of linked list that allows for a queue implementation with priority enqueue
+ * @author Andy
+ *
+ * @param <T> data type to be stored
+ */
 public class PriorityQueue<T extends Comparable<T>> extends LinkedList<T> {
 
+	/**
+	 * returns true if the que is empty. false otherwise
+	 * @return
+	 */
 	public boolean isEmpty() {
 		if (length == 0) {
 			return true;
@@ -10,6 +20,10 @@ public class PriorityQueue<T extends Comparable<T>> extends LinkedList<T> {
 		}
 	}
 
+	/**
+	 * adds data to the queue and uses compareTo to find the appropriate spot in the queue
+	 * @param data
+	 */
 	public void enqueue(T data) {
 
 		Node<T> currNode = head;
@@ -28,16 +42,27 @@ public class PriorityQueue<T extends Comparable<T>> extends LinkedList<T> {
 		addNode(data);
 	}
 	
+	/**
+	 * adds data to the queue but ignores the priority of the data
+	 * @param data
+	 */
 	public void enqueueIgnorePriority(T data) {
 		addNode(data);
 	}
 
+	/**
+	 * returns the first value in the queue and then deletes it from queue
+	 * @return
+	 */
 	public T dequeue() {
 		T tempData = head.data;
 		removeNode(0);
 		return tempData;
 	}
 
+	/**
+	 * this prints the contents of the queue
+	 */
 	public void Qprint() {
 		System.out.println("<<<<<<<<<<<< Beginning of Queue Contents >>>>>>>>>>>>>>>>>");
 

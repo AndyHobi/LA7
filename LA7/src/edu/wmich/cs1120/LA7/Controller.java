@@ -5,6 +5,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * The controller controls the process of reading the course and request files.
+ * It can also print the class list for all classes and processes the queue.
+ * 
+ * @author Andy & Lucas
+ *
+ */
 public class Controller implements IController {
 	LinkedList<Course> courseList = new LinkedList();
 	PriorityQueue<Request> queue;
@@ -12,11 +19,21 @@ public class Controller implements IController {
 	BufferedReader courseFile;
 	BufferedReader requestFile;
 
+	/**
+	 * Standard constructor
+	 * @param requestQueue
+	 * @param courses
+	 * @param fileIn
+	 * @param fileIn1
+	 */
 	public Controller(PriorityQueue<Request> requestQueue, LinkedList<Course> courses, BufferedReader fileIn,
 			BufferedReader fileIn1) {
 
 		queue = requestQueue;
 		courseList = courses;
+
+		courseFile = fileIn;
+		requestFile = fileIn1;
 
 	}
 
@@ -92,10 +109,10 @@ public class Controller implements IController {
 				requestNum++;
 			}
 		}
-		
+
 		System.out.println();
 		queue.Qprint();
 		System.out.println("\n");
-		
+
 	}
 }

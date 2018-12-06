@@ -4,12 +4,13 @@ public class course  implements ICourse{
 	String courseDept = "";
 	int courseNumber = 0;
 	int capacity = 0;
-	String[] classRoster = new String[capacity];
+	String[] classRoster;
 	
 	public void course(String course, int coursenum, int cap) {
 		courseDept = course;
 		courseNumber = coursenum;
 		capacity = cap;
+		classRoster = new String[cap];
 	}
 	
 	public void addStudent(String student) {
@@ -36,8 +37,13 @@ public class course  implements ICourse{
 		}
 	}
 	
-	public boolean checkClass() {
-		return true;
+	public boolean checkClass(course sample, course current) {
+		if(sample == current) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 }

@@ -1,49 +1,86 @@
 package edu.wmich.cs1120.LA7;
 
 public class LinkedList<T> {
-	
+
 	Node<T> head;
 	Node<T> tail;
-	int length;
-	
+	int length = 0;
+
 	LinkedList(T... data) {
-		
+
 		head = new Node<T>(data[0]);
-		head = tail;
-		
+		tail = head;
+
 		Node<T> currNode = head;
-		for(int i = 1; i < data.length; i++) {
+		for (int i = 1; i < data.length; i++) {
 			currNode.next = new Node<T>(data[i]);
 			currNode = currNode.next;
 			tail = currNode;
 		}
-		
+
 	}
-	
+
+	LinkedList() {
+
+		head = null;
+		tail = null;
+		length = 0;
+
+	}
+
 	public void addNode(T data) {
 		tail.next = new Node<T>(data);
 		tail = tail.next;
+		length++;
 	}
-	
+
 	public void addNode(T data, int index) {
-		tail.next = new Node<T>(data);
-		tail = tail.next;
+		if (index < length && index >= 0) {
+			tail.next = new Node<T>(data);
+			tail = tail.next;
+			length++;
+		} else {
+			throw new IndexOutOfBoundsException("Index [" + index + "] is not in list");
+		}
 	}
-	
+
+	public void removeNode(int index) {
+		
+		length--;
+		
+		if (index < length-1 && index > 0) {
+			
+			Node<T> currNode = getNode(index - 1);
+			currNode.next = currNode.next.next;
+			
+		} else if (index == 0) {
+			head.next = head;
+		} else if (index == length-1) {
+			getNode(length-2).next = null;
+		} else {
+			length++;
+			throw new IndexOutOfBoundsException("Node at Index [" + index + "] is not in list");
+		}
+	}
+
 	public T getData(int index) {
 		return getNode(index).data;
 	}
-	
-	private Node<T> getNode(int index) {
-		
-		Node<T> currNode = head;
-		for(int i = 0; i < index; i++) {
-		currNode = currNode.next;
+
+	private Node<T> getNode(int index) throws IndexOutOfBoundsException {
+
+		if (index < length && index >= 0) {
+			Node<T> currNode = head;
+			for (int i = 0; i < index; i++) {
+				currNode = currNode.next;
+			}
+			return currNode;
+		} else if (index == length) {
+			return tail;
+		} else {
+			throw new IndexOutOfBoundsException("Index [" + index + "] is not in list");
 		}
-		
-		return currNode;
+
 	}
-	
-	
 
 }

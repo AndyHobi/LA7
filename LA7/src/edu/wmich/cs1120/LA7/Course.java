@@ -1,10 +1,10 @@
 package edu.wmich.cs1120.LA7;
 
 public class Course  implements ICourse{
-	String courseDept = "";
-	int courseNumber = 0;
-	int capacity = 0;
-	String[] classRoster;
+	public String courseDept = "";
+	public int courseNumber = 0;
+	public int capacity = 0;
+	public String[] classRoster;
 	
 	public void course(String course, int coursenum, int cap) {
 		courseDept = course;
@@ -38,12 +38,14 @@ public class Course  implements ICourse{
 	}
 	
 	public boolean checkClass(Course sample, Course current) {
-		if(sample == current) {
-			return true;
+		if(sample.courseDept == current.courseDept) {
+			if(sample.courseNumber == current.courseNumber) {
+				if(sample.capacity == current.capacity) {
+					return true;
+				}
+			}
 		}
-		else {
-			return false;
-		}
+		return false;
 	}
 	
 }

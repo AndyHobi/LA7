@@ -64,23 +64,38 @@ public class Controller implements IController {
 	public void processRequests() {
 
 		queue.Qprint();
-		
+
+		System.out.println();
+
 		for (int i = 0; i < courseList.length; i++) {
 			int initLength = queue.length;
 			int requestNum = 0;
 			Course currCourse = courseList.getData(i);
 			Request currReq;
-			while (!queue.isEmpty()) {
-				
+			while (!queue.isEmpty() && requestNum <= initLength + queue.length) {
+
 				currReq = queue.dequeue();
-				if(currReq.getStudentDepart() == currCourse.courseDept || requestNum >= initLength) {
-					currCourse.addStudent(currReq.studentName);
+
+				if ((currReq.courseNumber == currCourse.courseNumber
+						&& (currReq.courseDepartment.compareTo(currCourse.courseDept)) == 0)) {
+
+					if (currReq.studentDepartment.compareTo(currCourse.courseDept) == 0 || requestNum >= initLength) {
+
+						currCourse.addStudent(currReq.studentName);
+
+					} else {
+						queue.enqueueIgnorePriority(currReq);
+					}
 				} else {
-					queue.enqueue(currReq);
+					queue.enqueueIgnorePriority(currReq);
 				}
 				requestNum++;
 			}
 		}
-
+		
+		System.out.println();
+		queue.Qprint();
+		System.out.println("\n");
+		
 	}
 }

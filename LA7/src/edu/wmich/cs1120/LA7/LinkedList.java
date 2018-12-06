@@ -41,7 +41,7 @@ public class LinkedList<T> {
 	}
 
 	public void addNode(T data, int index) {
-		if (index < length && index >= 0) {
+		if (index < length-1 && index >= 0) {
 			
 			Node<T> currNode = getNode(index);
 			currNode.next = new Node<T>(data,currNode.next);
@@ -49,6 +49,8 @@ public class LinkedList<T> {
 		} else if(index == -1) {
 			head = new Node<T>(data,head);
 			length++;
+		} else if (index == length-1) {
+			addNode(data);
 		} else {
 			throw new IndexOutOfBoundsException("Index [" + index + "] is not in list");
 		}

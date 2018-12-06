@@ -36,10 +36,12 @@ public class Course  implements ICourse{
 	}
 	
 	public void printClassList() {
-		System.out.println("The class list:");
+		System.out.println("Class list for " + courseDept + " " + courseNumber);
 		for(int i = 0; i < capacity; i++) {
-			System.out.print(classRoster[i] + " ");
+			if(classRoster[i] != null)
+			System.out.println(classRoster[i] + " ");
 		}
+		System.out.println();
 	}
 	
 	public boolean checkClass(Course sample, Course current) {
